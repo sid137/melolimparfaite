@@ -14,10 +14,16 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<?php $romangie_countComments = wp_count_comments(get_the_ID()); ?>
-					<div id="post-<?php the_ID(); ?>" <?php post_class('row post-roll'); ?>>
-						<div class="col-sm-3 meta info hidden-xs">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('row post-roll'); ?>>
+					
+						<div class="<?php echo $romangie_content_class; ?>">
+							<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __('Permalink to %s', 'romangie'), get_the_title()); ?>"><?php the_title(); ?></a></h1>
+                            <div class="entry"><?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'full' ); } the_content( __('Continue Reading', 'romangie') . '<span class="glyphicon glyphicon-chevron-right"></span>'); ?></div>
+							 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'romangie' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+
+<div class="col-sm-3 meta info hidden-xs">
 							
-							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __('Permalink to %s', 'romangie'), get_the_title()); ?>">
+							<?php /*?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __('Permalink to %s', 'romangie'), get_the_title()); ?>">
 								<?php 
 								if( has_post_format( ' quote' ) ) {
 									echo '<span data-icon="&#x7b;" class="metaicon"></span>';
@@ -41,24 +47,19 @@
 									echo '<span data-icon="&#xe058;" class="metaicon"></span>';
 								}
 								?>
-							</a>
+							</a><?php */?>
 							<hr class="metaline" />
 							<div class="additional-meta">
-								<div class="meta-item"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>"><span data-icon="&#xe08a;" class="info-icon"></span><?php the_author(); ?></a></div>
+								<div class="line1"><div class="meta-item"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );?>"><span data-icon="&#xe08a;" class="info-icon"></span><?php the_author(); ?></a></div>
 								<div class="meta-item"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __('Permalink to %s', 'romangie'), get_the_title()); ?>"><span data-icon="&#xe023;" class="info-icon"></span><?php echo get_the_date(); ?></a></div>
-								<div class="meta-item"><a href="<?php the_permalink(); ?>#comments" rel="bookmark" title="<?php _e('Go to comment section', 'romangie'); ?>"><span data-icon="&#xe065;" class="info-icon"></span><?php printf( _n( '%1$s Comment', '%1$s Comments', get_comments_number(), 'romangie' ), number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' ); ?></a></div>
-								<?php if ( has_category() ) { ?><div class="meta-item"><?php _e('Categories:', 'romangie' ); ?><?php the_category(); ?></div><?php } ?>
-								<?php if ( has_tag() ) { ?><div class="meta-item"><?php _e('Tags:', 'romangie' ); the_tags('<ul><li>','</li><li>','</li></ul>'); ?></div><?php } ?>
+								<?php if ( has_category() ) { ?><div class="meta-item"><?php _e('<h3>Categories :</h3>', 'romangie' ); ?><?php the_category(); ?></div><?php } ?>
+                                <div class="meta-item"><a href="<?php the_permalink(); ?>#comments" rel="bookmark" title="<?php _e('Go to comment section', 'romangie'); ?>"><span data-icon="&#xe065;" class="info-icon"></span><?php printf( _n( '%1$s Comment', '%1$s Comments', get_comments_number(), 'romangie' ), number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' ); ?></a></div></div>
+								<?php if ( has_tag() ) { ?><div class="meta-item"><?php _e('<h3>Tags :</h3>', 'romangie' ); the_tags('<ul><li>','</li><li>','</li></ul>'); ?></div><?php } ?>
 								<?php edit_post_link(__( 'Edit this entry.', 'romangie') , '<div class="meta-item">', '</div>'); ?>
 							</div>
 						</div>
-						<div class="<?php echo $romangie_content_class; ?>">
-							<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __('Permalink to %s', 'romangie'), get_the_title()); ?>"><?php the_title(); ?></a></h2>
-                            <div class="entry"><?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'full' ); } the_content( __('Continue Reading', 'romangie') . '<span class="glyphicon glyphicon-chevron-right"></span>'); ?></div>
-							 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'romangie' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-
 						</div>
-					 </div>
+					 </article> <!-- end Article -->
 			<?php endwhile; ?>
 			<?php else : ?>
 
@@ -66,8 +67,9 @@
 
 			<?php endif; ?>
 			<div class="pagenav page-links row">
-				<div class="next-posts pagination-item col-xs-6 col-sm-offset-3 col-sm-4"><?php next_posts_link('&laquo; ' . __('Older Entries', 'romangie') ) ?></div>
-				<div class="prev-posts pagination-item col-xs-6 col-sm-offset-1 col-sm-4"><?php previous_posts_link( __('Newer Entries', 'romangie') . ' &raquo;') ?></div> 
+            <div class="next-posts pagination-item col-xs-6 col-sm-offset-1 col-sm-4"><?php previous_posts_link('&laquo; ' . __('Articles suivants', 'romangie') ) ?></div>
+            <div class="prev-posts pagination-item col-xs-6 col-sm-offset-3 col-sm-4"><?php next_posts_link( __('Articles précédents', 'romangie') . ' &raquo;') ?></div>
+				 
 			</div>
 		</div>
 

@@ -1,4 +1,4 @@
-/*
+//*
  * Theme Name: Romangie
  * Theme URI: http://themes.tobscore.com/romangie/
  * Version: 1.1.1
@@ -36,9 +36,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* set img max-width */
 img {
-	max-width: 100%;
-	height: auto;
-	box-sizing: border-box;
+	display: block;
+    height: auto;
+    margin: 0.5em auto;
+    max-width: 100%;
 }
 
 @font-face {
@@ -70,6 +71,12 @@ img {
 STYLING
 **************************************/
 
+body {
+    color: #000000;
+	font:16px Georgia,Utopia,serif;
+	line-height: 1.4em;
+}
+
 nav {
 	display: block;
 	padding: 0;
@@ -77,13 +84,13 @@ nav {
 }
 
 a {
-	color: #b12930;
+	color: #666;
 	text-decoration: none;
 }
 
 a:hover, a:active {
 	text-decoration: underline;
-	color: #b12930;
+	color: #D5263F;
 }
 
 
@@ -93,7 +100,13 @@ a:hover, a:active {
     border-bottom: none;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0px 0px 5px #888;
+    box-shadow: 0px 0px 5px #666;
+}
+.container .col-sm-3 {
+    width: 100%;
+}
+.container .meta {
+    text-align: left;
 }
 
 .header {
@@ -110,21 +123,25 @@ a:hover, a:active {
     font-weight: normal;
 }
 
-#site-title a {
-    color: #b12930;
-    font-size: 30px;
-    padding: 5px 30px;
-    border-bottom: 1px solid #ddd;
+#header .site-branding h1#site-title a {
+	color: #000000;
+	padding: 5px 30px;
+	border-bottom: 1px solid #ddd;
+    font: 1.8em Dancing Script;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 }
-
+.site-branding h1 a:hover, .site-branding h1 a:active {
+    color: #000000F;
+    text-decoration: none;
+}
 #site-description {
-    color: #888;
-    font-size: 14px;
+    color: #666;
+    font-size: 16px;
     margin-top: 17px;
 }
 
 .navi-wrap {
-	font-size: 15px;
+	font-size: 16px;
 	text-align: center;
 	border-top: 3px double #ddd;
 }
@@ -145,7 +162,7 @@ a:hover, a:active {
 }
 
 .navi-wrap li a {
-	color: #b12930;
+	color: #000000;
 	display: block;
 	line-height: 2.8em;
 	padding: 0 1em;
@@ -173,7 +190,7 @@ a:hover, a:active {
 
 .navi-wrap ul ul a {
 	background: #fff;
-	color: #b12930;
+	color: #000000;
 	line-height: 1.5em;
 	padding: .5em .5em .5em 1em;
 	width: 12em;
@@ -187,7 +204,7 @@ a:hover, a:active {
 .navi-wrap .current-menu-ancestor > a,
 .navi-wrap .current_page_item > a,
 .navi-wrap .current_page_ancestor > a {
-	color: #000;
+	color: #666;
 }
 .navi-wrap ul ul a:hover {
 	background: #f3f3f3;
@@ -211,9 +228,13 @@ a:hover, a:active {
 }
 
 .page-title {
-	text-align: center;
-	font-size: 25px;
-	font-weight: 300;
+	border: 1px solid #777777;
+    color: #777777;
+    font-size: 25px;
+    font-weight: 300;
+    padding: 0.25em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 #title_archives {
@@ -221,12 +242,19 @@ a:hover, a:active {
 }
 /** Styling of Meta Element */
 
+.red {
+	color: #666;
+}
+.center {
+	text-align:center;
+}
 .info {
 	margin-top: 3px;
 }
 
 .footer .info {
-	margin-top: 10px;
+    margin: 1em 2em;
+	padding-left:15px;
 }
 
 .meta {
@@ -242,30 +270,58 @@ a:hover, a:active {
 .info-icon {
 	display: inline;
 	margin-right: 6px;
-	color: #b12930;
-	font-size: 13px;
+	color: #000000;
+	font-size: 16px;
 }
 
 .metaline {
 	margin: 5px 0 15px;
 }
 
-.info p, .info li, .info a, .info div, .comment-author {
-	font-size: 14px !important;
+.info p,.info li, .info a, .info div, .comment-author {
+	font-size: 12px !important;
 	text-decoration: none !important;
-	line-height: 23px !important;
+	line-height: 1.4em !important;
+}
+.info h3 {
+	font-size: 16px !important;
+	font-weight:normal;
+	line-height: 1.6em !important;
+	display: inline;
 }
 
 .meta-item {
-	margin-top: 10px;
+	margin-top: 5px;
+	clear: both;
 }
+.line1 .meta-item {
+	display:inline;
+	margin-right: 1em;
+}
+.meta-item.date {
+margin-bottom: 0.5em;
+}
+.meta-item.date a {
+	color:#777;
+	
+}
+.partenaire {height: 35px;}
 
 .commentlist .meta-item {
-	margin: 10px 0 0 !important;
+	display: inline-block;
+    margin: 10px 0 0 !important;
+    padding: 0 1em 0 0;
 }
-
+.commentlist .hidden-xs {
+    display: inline-block !important;
+}
+.meta-item ul {
+	display: inline-block;
+}
 .info li {
 	list-style: none !important;
+	display: inline-block;
+	padding: 0 0.5em;
 }
 
 /* Content Styling */
@@ -278,20 +334,34 @@ a:hover, a:active {
 	text-decoration: underline;
 }
 
+
 .content p, .content li, .content pre, .comment-content p, .comment-content li, .comment-content pre {
-	font-size: 15px;
-	line-height: 1.5em;
-	color: #444;
+	font-size: 110%;
+	line-height: 1.4em;
+	text-align: justify;
+}
+.search .entry p {
+	line-height: 1.8em;
+}
+.entry div {
+	padding-top: 10px;
+	text-align: justify;
+	font-size: 110%;
+	line-height: 1.4em;
 }
 
 .comment .alert {
 	padding: 5px 15px;
 }
-
+.entry em, .entry i {
+	color:#666666;
+}
 .entry p, .comment-content p, .entry blockquote, .comment-content blockquote {
     margin: 0 0 22px;
 }
-
+.entry .legendes {color: #5A5A5A;
+    font-size: 90%;
+    text-align: center;}
 .entry embed, .entry iframe, .mejs-container {
 	max-width: 100%;
 }
@@ -329,8 +399,8 @@ img.wp-post-image {
 }
 
 .comments-area .children {
-	margin: 0;
-	border-left: 2px solid #b12930;
+	margin: 0 0 0 5em;
+	border-left: 2px solid #000000;
 }
 
 .comments-area .children .comment {
@@ -393,20 +463,24 @@ img.wp-post-image {
 }
 
 .new-comment, .pingback {
-	padding-top: 15px;
-	padding-bottom: 25px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	border-bottom: 1px dotted #eee;
     margin-right: 20px;
 	margin-left: 0;
 }
 
 .comment-content {
-	margin-top: 20px;
+	margin-top: 0px;
+}
+.comment-author.vcard img {
+	display: inline-block;
 }
 
 .entry-title, .entry-title a{
 	font-weight: normal;
 	font-size: 26px;
+	color:#000000;
 }
 
 .entry {
@@ -414,19 +488,42 @@ img.wp-post-image {
 }
 
 .entry h2, .comment-content h2, .entry h1, .comment-content h1 {
-	margin: 40px 0 10px;
+	margin: 5px 0 10px;
 }
 
 .entry h2, .comment-content h2 {
 	font-weight: normal;
 }
 
-.entry h3, .entry h4, .entry h5, .entry h6, .comment-content h3, .comment-content h4, .comment-content h5, .comment-content h6 {
+.entry h4, .entry h5, .entry h6, .comment-content h3, .comment-content h4, .comment-content h5, .comment-content h6 {
 	font-weight: normal;
 	font-style: italic;
 	color: #777;
 	margin: 20px 0 10px;
 }
+.content .entry h2 {
+	font-size:16px;
+	margin-bottom: 1em;
+}
+.content .entry h3 {
+	font-size:16px;
+	margin-bottom: 1em;
+	text-align: center;
+}
+.entry h2 {
+	text-align: center;
+	font-size:110%;
+	font-weight:normal;
+	color:#000;
+	
+}
+.entry h2 a{
+	color:#D5263F;
+}
+.entry h3 a{
+	color:#000;
+}
+
 
 .entry h4, .entry h5, .entry h6, .comment-content h4.comment-content h5, .comment-content h6{
 	text-transform: uppercase;
@@ -482,7 +579,7 @@ img.wp-post-image {
 
 .entry blockquote:before, .comment-content blockquote:before {
 	content: '{';
-	color: #b12930;
+	color: #D5263F;
 	font-size: 500%;
 	position: absolute;
 	font-family: Georgia, serif;
@@ -508,7 +605,7 @@ img.wp-post-image {
 }
 
 .entry .wp-caption-text {
-    font-size: 15px;
+    font-size: 16px;
     font-style: italic;
     margin: 5px 0 22px;
 }
@@ -571,11 +668,38 @@ code {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 }
+.wp_rp_content a {
+	text-align:left;
+}
+div.wp_rp_footer a.wp_rp_edit {
+    background: none repeat scroll 0 0 #D5263F!important;}
+#wp_rp_first {
+	text-align:center;
+	border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
+    padding: 1em 0;
+}
+#wp_rp_first div.wp_rp_footer {
+    text-align: center !important;
+}
+#wp_rp_first .related_post_title {
+	font-size:16px;
+	color:#333;
+	text-transform: uppercase;
+}
+#wp_rp_first div.wp_rp_footer a.wp_rp_edit {
+    background-color: #D5263F!important;}
+
+
+
 
 /** Sidebar Styling */
+#sidebar img {
+    display: inline-block;
+}
 .sidebar h4 ,.sidebar label, .sidebar caption, .comments-title {
 	color: #444;
-	font-size: 18px;
+	font-size: 14px;
 	margin-bottom: 10px;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -629,22 +753,30 @@ code {
     width: 100%;
 }
 
+
 /** Footer */
 
+footer{
+	margin: 0 0 0 -15px;
+    width: 102.6%;
+}
+
 .footer {
-	background: #333;
+	background: #DDD;
 	margin-top: 50px;
 	border-top: 1px solid #ddd;
     color: #bebebe;
     font-size: 15px;
-    text-shadow: 1px 1px #111;
 }
 
 .footer .info h2, .footer .info h3, .footer .info h4, .footer .info h5, .footer .info h6, .footer .info p , .footer .info caption {
-	color: #fff;
-    font-weight: bold;
-    margin-bottom: 30px;
+	color: #333;
+    margin-bottom: 1em;
 } 
+footer h2 {
+	font-size:11px;
+	color: #AAAAAA;
+}
 
 .footer #wp-calendar tbody td a {
 	color: #FF3D3D;
@@ -652,10 +784,7 @@ code {
 
 .siteinfo {
 	background: #0e0e0e;
-	padding: 20px 0;
-	border-top: 1px solid #000;
-	text-align: center;
-    text-shadow: 1px 1px #111;
+	padding: 10px 0;
 }
 
 .footer a, .siteinfo a {
@@ -663,11 +792,29 @@ code {
 }
 
 .siteinfo p, .footer td, .footer th {
-	font-size: 13px;
+	font-size: 11px;
 	color: #aaa;
 }
+.siteinfo .copyright {
+	color:#fff;
+	text-align:center;
+	font-size:12px;
+}
+.footer .info p,.info h2 {
+	font-size: 10px !important;
+}
+
+
 
 /** Widgets */
+
+
+
+/* Social Font Awesome */
+.social-fa-links a {
+       margin: 0 10px;
+}
+
 #wp-calendar {
 	margin: 0 auto;
 	padding: 0.5em;
@@ -687,7 +834,7 @@ code {
 
 #wp-calendar tbody td a {
 	font-weight: bold;
-	color: #b12930;
+	color: #D5263F;
 }
 
 .textwidget p {
@@ -701,11 +848,11 @@ code {
 }
 
 .required {
-	color: #b12930;
+	color: #666;
 }
 
 .comment-notes {
-	font-size: 13px !important;
+	font-size: 12px !important;
 	color: #666 !important;
 	margin: 20px 0 30px !important;
 }
@@ -719,9 +866,9 @@ code {
 }
 
 input[type="submit"] {
-	background: #b12930;
-	border: 2px solid #ac2025;
-	color: #fff;
+	background: #000000;
+	border: 2px solid #000000;
+	color: #FFF;
 	text-decoration: none;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
@@ -744,7 +891,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background: #c43D3D;
+	background: #666;
 }
 
 input[type="password"], input[type="text"], input[type="search"] {
@@ -763,13 +910,16 @@ input[type="password"], input[type="text"], input[type="search"] {
 	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+.wysija-paragraph input[type="text"] {
+	color: #000000;
+}
 
 /** Pagination Styling */
 
 .page-links a , .more-link, .comments .navigation a {
 	border: 1px solid #bbb;
 	border-radius: 6px;
-	font-size: 14px;
+	font-size: 1.16em;
 	background: #f9f9f9;
 	padding: 10px 20px;
 	display: inline-block;
@@ -789,13 +939,18 @@ input[type="password"], input[type="text"], input[type="search"] {
 }
 
 .excerpt-link {
-	margin-top: 2px;
-	margin-left: 10px;
+	font-size: 1em;
+    line-height: 1em;
+    margin-left: 10px;
+    margin-top: 2px;
+    padding-bottom: 0.5em;
 }
 
 .page-links a, .comments .navigation a {
-	padding: 4px 8px;
-	height: 28px;
+	/*padding: 4px 8px;*/
+	padding: 0.3em 0.6em;
+	/*height: 28px;*/
+	height: 2em;
 	text-align: center;
 	border-radius: 4px;
 	margin: 20px 2px 0;
@@ -814,9 +969,52 @@ input[type="password"], input[type="text"], input[type="search"] {
 }
 
 .pagenav .prev-posts {
-	text-align: right;
+	
 }
-
+.pagenav .prev-posts.col-sm-offset-3 {
+	float:right;
+}
+.pagenav .prev-posts.col-sm-4 a {
+	float:right;
+}
+.pagenav .next-posts.col-sm-offset-1 {
+	margin-left:0;
+	float:left;
+}
+.pagenav .next-posts.col-sm-4 a {
+	float:left;
+}
+.left a, .right a {
+	border-radius: 4px;
+    height: 28px;
+    margin: 20px 2px 0;
+    padding: 4px 8px;
+    text-align: center;
+	background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #BBBBBB;
+    display: inline-block;
+    font-size: 14px;	
+}
+.left {float:left;}
+.right {float:right;}
 #error_message {
 	 text-align: center;
+}
+img#wpstats{position:absolute;top:0;width:0px;height:0px;overflow:hidden}
+
+
+@media (max-width: 450px) {
+.site-branding {
+	text-align: center;
+	margin: 40px 1em 45px;
+	font-weight: normal;
+}
+#header .site-branding h1#site-title a {
+    font: 1.3em Dancing Script;
+	padding: 5px 0px;
+}
+.page-links a, .more-link, .comments .navigation a {
+    font-size: 0.7em;
+		height: 2.8em;
+}
 }
